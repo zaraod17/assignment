@@ -33,11 +33,11 @@ export default defineComponent({
       return props.user.firstName + " " + props.user.lastName;
     });
 
-    const setUserData = () => {
+    const setUserData = () : void => {
       store.dispatch("setSelectedUser", props.user);
     };
 
-    onBeforeMount(() => {
+    onBeforeMount(() : void => {
       isVerified.value = localStorage.getItem(props.user.id);
     });
 

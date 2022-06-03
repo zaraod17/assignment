@@ -8,22 +8,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent , PropType } from 'vue';
 
 export default defineComponent({
   props: {
     mode: {
-      type: String,
+      type: String as PropType<String>,
       required: false,
       default: null,
     },
     link: {
-      type: Boolean,
+      type: Boolean as PropType<Boolean>,
       required: false,
       default: false,
     },
     to: {
-      type: String,
+      type: String as PropType<String>,
       required: false,
       default: "/",
     },

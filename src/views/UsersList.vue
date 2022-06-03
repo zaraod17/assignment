@@ -22,7 +22,7 @@ export default defineComponent({
     const store = useStore();
     const users = store.getters.users;
 
-    const loadMore = () => {
+    const loadMore = () : void => {
       store.dispatch("loadUsers");
     };
 

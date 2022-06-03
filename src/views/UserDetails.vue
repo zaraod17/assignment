@@ -21,10 +21,10 @@
 </template>
 
 <script lang="ts">
-import { computed, ref, onBeforeMount } from "vue";
+import { computed, ref, onBeforeMount, defineComponent } from "vue";
 import { useStore } from "@/store/index";
 
-export default {
+export default defineComponent({
   setup() {
     const store = useStore();
     const isVerified = ref<String | null>();
@@ -34,7 +34,7 @@ export default {
       return user.firstName + " " + user.lastName;
     });
 
-    const fullAddress = computed(() => {
+    const fullAddress = computed<String>(() => {
       return (
         user.address.street.number +
         " " +
@@ -46,18 +46,18 @@ export default {
       );
     });
 
-    const verifyUser = () => {
+    const verifyUser = () : void => {
       localStorage.setItem(user.id, user.id);
       isVerified.value = localStorage.getItem(user.id);
     };
 
-    onBeforeMount(() => {
+    onBeforeMount(() : void => {
       isVerified.value = localStorage.getItem(user.id);
     });
 
     return { user, fullName, verifyUser, isVerified, fullAddress };
   },
-};
+});
 </script>
 
 <style scoped>
