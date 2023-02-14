@@ -1,4 +1,6 @@
-# assigment-task
+# Random users
+
+https://euphonious-elf-f6e3b3.netlify.app
 
 ## Project setup
 ```
